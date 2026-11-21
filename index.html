@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntColony — Живые муравьиные фермы и колонии муравьев с гарантией</title>
+    <meta name="description" content="Купить муравьев и муравьиные фермы (формикарии) с доставкой по всей России. Гарантия живой доставки 100%, стартовые наборы для новичков, консультации мирмеколога.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Unbounded"', 'sans-serif'],
+                    },
+                    colors: {
+                        amber: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                            950: '#451a03',
+                        },
+                        forest: {
+                            800: '#132a13',
+                            900: '#0b1d0b',
+                            950: '#050f05',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-pattern {
+            background-color: #0c120c;
+            background-image: radial-gradient(rgba(245, 158, 11, 0.12) 1px, transparent 1px), radial-gradient(rgba(16, 185, 129, 0.08) 1px, #0c120c 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        .glow-amber {
+            box-shadow: 0 0 45px -10px rgba(245, 158, 11, 0.35);
+        }
+        .badge-pulse {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-ring {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- Top Alert Notification Bar -->
+    <div class="bg-gradient-to-r from-amber-600 via-amber-500 to-emerald-600 text-slate-950 text-xs sm:text-sm font-bold py-2 px-4 text-center flex items-center justify-center gap-2">
+        <span class="inline-flex items-center justify-center w-5 h-5 bg-slate-950 text-amber-400 rounded-full text-xs">🐜</span>
+        <span>Весенняя акция: Годовой запас корма и автопоилка <strong>В ПОДАРОК</strong> при заказе любого стартового набора!</span>
+        <a href="#sets" class="underline decoration-slate-950 hover:text-white transition-colors ml-1 hidden sm:inline">Подробнее &rarr;</a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-40 glass-nav border-b border-slate-800 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-bug text-slate-950 text-xl"></i>
+                </div>
+                <div>
+                    <span class="font-display font-bold text-xl sm:text-2xl tracking-tight text-white block">
+                        ANT<span class="text-amber-400">COLONY</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 tracking-wider uppercase block -mt-1">Живые муравьиные фермы</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#catalog" class="hover:text-amber-400 transition-colors">Муравьи</a>
+                <a href="#sets" class="hover:text-amber-400 transition-colors">Стартовые наборы</a>
+                <a href="#why-us" class="hover:text-amber-400 transition-colors">Почему муравьи?</a>
+                <a href="#guarantee" class="hover:text-amber-400 transition-colors">Гарантия 100%</a>
+                <a href="#quiz" class="hover:text-amber-400 transition-colors flex items-center gap-1.5 text-emerald-400">
+                    <i class="fa-solid fa-wand-magic-sparkles text-xs"></i>
+                    Подбор фермы
+                </a>
+                <a href="#reviews" class="hover:text-amber-400 transition-colors">Отзывы</a>
+                <a href="#faq" class="hover:text-amber-400 transition-colors">FAQ</a>
+            </nav>
+
+            <!-- Actions: Phone & Cart -->
+            <div class="flex items-center gap-4">
+                <a href="tel:+78005553535" class="hidden md:flex items-center gap-2 text-sm text-slate-300 hover:text-white transition">
+                    <div class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-amber-400">
+                        <i class="fa-solid fa-phone text-xs"></i>
+                    </div>
+                    <span class="font-semibold">8 (800) 555-35-35</span>
+                </a>
+
+                <button onclick="toggleCart()" class="relative bg-slate-800 hover:bg-slate-700 text-white p-3 rounded-xl border border-slate-700/80 transition flex items-center justify-center group" aria-label="Открыть корзину">
+                    <i class="fa-solid fa-basket-shopping text-amber-400 group-hover:scale-110 transition-transform"></i>
+                    <span id="cart-counter" class="absolute -top-1.5 -right-1.5 bg-amber-500 text-slate-950 font-bold text-xs w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+                </button>
+
+                <!-- Mobile menu button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-300 hover:text-white p-2" aria-label="Меню">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-slate-900 px-6 py-6 space-y-4">
+            <a href="#catalog" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 font-medium py-1">Каталог видов муравьев</a>
+            <a href="#sets" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 font-medium py-1">Стартовые наборы и фермы</a>
+            <a href="#why-us" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 font-medium py-1">Преимущества муравьев</a>
+            <a href="#guarantee" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 font-medium py-1">Гарантия живой доставки</a>
+            <a href="#quiz" onclick="toggleMobileMenu()" class="block text-emerald-400 hover:text-emerald-300 font-medium py-1">Тест: подобрать колонию</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 font-medium py-1">Отзывы покупателей</a>
+            <a href="#faq" onclick="toggleMobileMenu()" class="block text-slate-200 hover:text-amber-400 font-medium py-1">Частые вопросы</a>
+            <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+                <a href="tel:+78005553535" class="text-sm font-semibold text-amber-400 flex items-center gap-2">
+                    <i class="fa-solid fa-phone"></i> 8 (800) 555-35-35 (Бесплатно по РФ)
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-pattern relative pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden border-b border-slate-800/80">
+            <!-- Background Glows -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-amber-500/10 rounded-full blur-[130px] pointer-events-none"></div>
+            <div class="absolute top-1/2 -right-40 w-[450px] h-[350px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                    
+                    <!-- Left Hero Copy -->
+                    <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-medium">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 badge-pulse"></span>
+                            <span>Королева с расплодом + рабочие в каждой колонии</span>
+                        </div>
+
+                        <h1 class="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.15]">
+                            Собственная цивилизация <br class="hidden sm:inline">
+                            <span class="bg-gradient-to-r from-amber-400 via-amber-300 to-emerald-400 bg-clip-text text-transparent">прямо на вашем столе</span>
+                        </h1>
+
+                        <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Продажа здоровых колоний муравьев и надежных формикариев. Уникальное хобби без аллергии, запаха и шума: наблюдайте за рождением солдат, строительством туннелей и добычей пищи.
+                        </p>
+
+                        <!-- Key Bullets -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-left">
+                            <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl">
+                                <i class="fa-solid fa-shield-heart text-amber-400 text-lg mb-1 block"></i>
+                                <span class="font-bold text-white text-sm block">100% Гарантия</span>
+                                <span class="text-xs text-slate-400">Доедут живыми или заменим</span>
+                            </div>
+                            <div class="bg-slate-900/80 border border-slate-800 p-3 rounded-xl">
+                                <i class="fa-solid fa-plane-departure text-emerald-400 text-lg mb-1 block"></i>
+                                <span class="font-bold text-white text-sm block">Термобокс</span>
+                                <span class="text-xs text-slate-400">Доставка круглый год</span>
+                            </div>
+                            <div class="col-span-2 sm:col-span-1 bg-slate-900/80 border border-slate-800 p-3 rounded-xl">
+                                <i class="fa-solid fa-comments text-amber-400 text-lg mb-1 block"></i>
+                                <span class="font-bold text-white text-sm block">Зоолог 24/7</span>
+                                <span class="text-xs text-slate-400">Пожизненная поддержка</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA buttons -->
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                            <a href="#catalog" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-base transition-all shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2 group">
+                                <span>Выбрать муравьев</span>
+                                <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <a href="#sets" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 font-semibold text-base transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-box-open text-amber-400"></i>
+                                <span>Готовые наборы для старта</span>
+                            </a>
+                        </div>
+
+                        <!-- Trust proof -->
+                        <div class="flex items-center justify-center lg:justify-start gap-4 pt-2 text-xs text-slate-400">
+                            <div class="flex -space-x-2 overflow-hidden">
+                                <img class="inline-block h-8 w-8 rounded-full ring-2 ring-slate-900 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Покупатель">
+                                <img class="inline-block h-8 w-8 rounded-full ring-2 ring-slate-900 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Покупатель">
+                                <img class="inline-block h-8 w-8 rounded-full ring-2 ring-slate-900 object-cover" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&q=80" alt="Покупатель">
+                            </div>
+                            <div class="text-left">
+                                <div class="flex items-center text-amber-400 gap-1 text-xs">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    <span class="text-white font-bold ml-1">4.9 / 5.0</span>
+                                </div>
+                                <span>Более 6 400 выращенных колоний</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Visual Card -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative mx-auto max-w-md lg:max-w-none">
+                            <!-- Outer decorative border -->
+                            <div class="absolute -inset-1 bg-gradient-to-r from-amber-500 to-emerald-500 rounded-3xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                            
+                            <div class="relative bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-7 shadow-2xl overflow-hidden">
+                                <!-- Card Header Tag -->
+                                <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                                        <span class="text-xs uppercase tracking-wider font-semibold text-emerald-400">Хит продаж • Для новичков</span>
+                                    </div>
+                                    <span class="text-xs text-slate-400 bg-slate-800 px-2.5 py-1 rounded-full font-mono">Арт. ANT-101</span>
+                                </div>
+
+                                <!-- Image with simulated live status -->
+                                <div class="relative my-4 rounded-2xl overflow-hidden bg-slate-950 aspect-video group">
+                                    <img src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?auto=format&fit=crop&w=800&q=80" 
+                                         alt="Степной муравей-жнец Messor Structor" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                                        <span class="text-xs bg-slate-900/90 backdrop-blur text-white px-2.5 py-1 rounded-md border border-slate-700">
+                                            <i class="fa-solid fa-wheat-awn text-amber-400 mr-1"></i> Питаются зернами
+                                        </span>
+                                        <span class="text-xs bg-emerald-950/80 backdrop-blur text-emerald-400 border border-emerald-700/50 px-2.5 py-1 rounded-md">
+                                            В наличии 42 шт.
+                                        </span>
+                                    </div>
+                                </div>
+
+                                <!-- Info Details -->
+                                <div class="space-y-3">
+                                    <div class="flex items-start justify-between">
+                                        <div>
+                                            <h3 class="font-display font-bold text-xl text-white">Messor Structor</h3>
+                                            <p class="text-xs text-slate-400">Степной муравей-жнец (Матка + 20-30 рабочих + расплод)</p>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-2xl font-black text-amber-400 font-display">790 ₽</span>
+                                            <span class="text-xs text-slate-500 line-through block">1 200 ₽</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Quick Specs -->
+                                    <div class="grid grid-cols-3 gap-2 py-2 text-center text-xs">
+                                        <div class="bg-slate-950/60 p-2 rounded-lg border border-slate-800">
+                                            <span class="text-slate-400 block text-[11px]">Сложность</span>
+                                            <span class="font-semibold text-emerald-400">1 / 5 (Легко)</span>
+                                        </div>
+                                        <div class="bg-slate-950/60 p-2 rounded-lg border border-slate-800">
+                                            <span class="text-slate-400 block text-[11px]">Зимовка</span>
+                                            <span class="font-semibold text-white">Не нужна</span>
+                                        </div>
+                                        <div class="bg-slate-950/60 p-2 rounded-lg border border-slate-800">
+                                            <span class="text-slate-400 block text-[11px]">Жизнь матки</span>
+                                            <span class="font-semibold text-amber-400">до 20 лет</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Button inside hero card -->
+                                    <button onclick="addToCart('Messor Structor (Степной жнец)', 790, 'https://images.unsplash.com/photo-1589656966895-2f33e7653819?auto=format&fit=crop&w=400&q=80')" class="w-full py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-md">
+                                        <i class="fa-solid fa-cart-plus"></i>
+                                        <span>Добавить в заказ за 790 ₽</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Keep Ants? (Преимущества) -->
+        <section id="why-us" class="py-20 bg-slate-900 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-xs font-bold tracking-widest uppercase text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                        Идеальный домашний питомец
+                    </span>
+                    <h2 class="font-display font-black text-2xl sm:text-4xl text-white">
+                        Почему муравьиная ферма лучше собаки или кошки?
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        Муравьи — это живой научно-фантастический сериал прямо у вас дома. Настоящая социальная иерархия без лишних хлопот.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-feather"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white mb-2">0% Аллергии и запаха</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Ферма полностью герметична. Никакой шерсти, пыли, меток и неприятных запахов в квартире. Подходит аллергикам и детям.
+                        </p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition-all hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-umbrella-beach"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white mb-2">Уезжайте в отпуск на 2-3 недели</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Благодаря автопоилке и зерновому запасу колония живет абсолютно автономно. Не нужно просить соседей покормить их.
+                        </p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 transition-all hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-volume-xmark"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white mb-2">Абсолютная тишина</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Никакого лая в 6 утра, ночных тыгыдыков и шуршания колеса как у хомяка. Они идеальные соседи для рабочего кабинета.
+                        </p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="bg-slate-950/60 p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 transition-all hover:-translate-y-1">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl mb-4">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white mb-2">Развитие и антистресс</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Оторвет ребенка от планшета и обучит основам биологии. А наблюдение за копошением муравейника снимает стресс за 10 минут.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Section: Ant Species -->
+        <section id="catalog" class="py-20 bg-slate-950 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                    <div>
+                        <span class="text-xs font-bold tracking-widest uppercase text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                            Колонии в наличии
+                        </span>
+                        <h2 class="font-display font-black text-2xl sm:text-4xl text-white mt-2">
+                            Каталог видов муравьев
+                        </h2>
+                        <p class="text-slate-400 text-sm sm:text-base mt-1">
+                            Все матки проверены ветеринаром-мирмекологом и отправляются с расплодом в инкубаторах
+                        </p>
+                    </div>
+
+                    <!-- Filter buttons -->
+                    <div class="flex flex-wrap gap-2" id="catalog-filters">
+                        <button onclick="filterCatalog('all')" class="catalog-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-amber-500 text-slate-950" data-category="all">
+                            Все виды
+                        </button>
+                        <button onclick="filterCatalog('beginner')" class="catalog-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800" data-category="beginner">
+                            Для новичков
+                        </button>
+                        <button onclick="filterCatalog('large')" class="catalog-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800" data-category="large">
+                            Крупные солдаты
+                        </button>
+                        <button onclick="filterCatalog('exotic')" class="catalog-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800" data-category="exotic">
+                            Экзотика
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="ant-products-grid">
+                    
+                    <!-- Ant 1 -->
+                    <div class="ant-card bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition group" data-category="beginner">
+                        <div>
+                            <div class="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                                <img src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?auto=format&fit=crop&w=700&q=80" alt="Messor structor" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-amber-500 text-slate-950 text-xs font-bold px-2.5 py-1 rounded-md shadow">
+                                    Хит продаж
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-slate-300 text-xs px-2.5 py-1 rounded-md border border-slate-700">
+                                    Матка + 25-35 раб.
+                                </span>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h3 class="font-display font-bold text-lg text-white">Messor Structor</h3>
+                                    <span class="text-xs text-emerald-400 font-semibold bg-emerald-950/70 border border-emerald-800/40 px-2 py-0.5 rounded">Без зимовки</span>
+                                </div>
+                                <p class="text-xs text-amber-400 font-medium mb-3">Степной муравей-жнец</p>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                    Самый популярный и неприхотливый вид. Питается семенами мака, проса и рапса. Не требует живого корма. Спокойный характер.
+                                </p>
+                                
+                                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-300 bg-slate-950/50 p-2.5 rounded-xl border border-slate-800 mb-4">
+                                    <div><span class="text-slate-500">Размер матки:</span> 11-12 мм</div>
+                                    <div><span class="text-slate-500">Сложность:</span> 1 / 5 (Легко)</div>
+                                    <div><span class="text-slate-500">Питание:</span> Семена зерновых</div>
+                                    <div><span class="text-slate-500">Касты:</span> Солдаты, рабочие</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 pt-0 border-t border-slate-800/60 mt-auto flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold font-display text-white">790 ₽</span>
+                                <span class="text-xs text-slate-500 line-through block">1 150 ₽</span>
+                            </div>
+                            <button onclick="addToCart('Messor structor (Жнецы)', 790, 'https://images.unsplash.com/photo-1589656966895-2f33e7653819?auto=format&fit=crop&w=400&q=80')" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5 shadow">
+                                <i class="fa-solid fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ant 2 -->
+                    <div class="ant-card bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition group" data-category="large">
+                        <div>
+                            <div class="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                                <img src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?auto=format&fit=crop&w=700&q=80" alt="Camponotus vagus" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-slate-800 text-amber-400 border border-amber-500/30 text-xs font-bold px-2.5 py-1 rounded-md">
+                                    Гиганты
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-slate-300 text-xs px-2.5 py-1 rounded-md border border-slate-700">
+                                    Матка + 15-20 раб.
+                                </span>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h3 class="font-display font-bold text-lg text-white">Camponotus Vagus</h3>
+                                    <span class="text-xs text-amber-400 font-semibold bg-amber-950/70 border border-amber-800/40 px-2 py-0.5 rounded">Зимовка нужна</span>
+                                </div>
+                                <p class="text-xs text-amber-400 font-medium mb-3">Черный муравей-древоточец</p>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                    Одни из крупнейших муравьев в Европе! Огромные матки и массивные солдаты с мощными жвалами. Быстрые и агрессивные охотники.
+                                </p>
+                                
+                                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-300 bg-slate-950/50 p-2.5 rounded-xl border border-slate-800 mb-4">
+                                    <div><span class="text-slate-500">Размер матки:</span> 15-17 мм</div>
+                                    <div><span class="text-slate-500">Сложность:</span> 2 / 5 (Средняя)</div>
+                                    <div><span class="text-slate-500">Питание:</span> Сироп + белок</div>
+                                    <div><span class="text-slate-500">Касты:</span> Майор, медиа, минор</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 pt-0 border-t border-slate-800/60 mt-auto flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold font-display text-white">1 490 ₽</span>
+                                <span class="text-xs text-slate-500 line-through block">1 900 ₽</span>
+                            </div>
+                            <button onclick="addToCart('Camponotus vagus (Древоточец)', 1490, 'https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?auto=format&fit=crop&w=400&q=80')" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5 shadow">
+                                <i class="fa-solid fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ant 3 -->
+                    <div class="ant-card bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition group" data-category="exotic">
+                        <div>
+                            <div class="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                                <img src="https://images.unsplash.com/photo-1541414779316-956a5084c0d4?auto=format&fit=crop&w=700&q=80" alt="Camponotus nicobarensis" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-red-500/90 text-white text-xs font-bold px-2.5 py-1 rounded-md">
+                                    Тропики
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-slate-300 text-xs px-2.5 py-1 rounded-md border border-slate-700">
+                                    Матка + 20-30 раб.
+                                </span>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h3 class="font-display font-bold text-lg text-white">Camp. Nicobarensis</h3>
+                                    <span class="text-xs text-emerald-400 font-semibold bg-emerald-950/70 border border-emerald-800/40 px-2 py-0.5 rounded">Без зимовки</span>
+                                </div>
+                                <p class="text-xs text-amber-400 font-medium mb-3">Никобаренсис (Юго-Восточная Азия)</p>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                    Яркая рыже-красная окраска. Очень быстро растущая и активная тропическая колония, круглый год готова исследовать арену.
+                                </p>
+                                
+                                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-300 bg-slate-950/50 p-2.5 rounded-xl border border-slate-800 mb-4">
+                                    <div><span class="text-slate-500">Размер матки:</span> 15-16 мм</div>
+                                    <div><span class="text-slate-500">Сложность:</span> 1.5 / 5 (Легко)</div>
+                                    <div><span class="text-slate-500">Питание:</span> Сахарный сироп, белок</div>
+                                    <div><span class="text-slate-500">Темп роста:</span> Сверхбыстрый</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 pt-0 border-t border-slate-800/60 mt-auto flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold font-display text-white">2 290 ₽</span>
+                                <span class="text-xs text-slate-500 line-through block">2 800 ₽</span>
+                            </div>
+                            <button onclick="addToCart('Camponotus nicobarensis', 2290, 'https://images.unsplash.com/photo-1541414779316-956a5084c0d4?auto=format&fit=crop&w=400&q=80')" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5 shadow">
+                                <i class="fa-solid fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ant 4 -->
+                    <div class="ant-card bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition group" data-category="beginner">
+                        <div>
+                            <div class="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                                <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=700&q=80" alt="Lasius niger" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">
+                                    Неубиваемые
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-slate-300 text-xs px-2.5 py-1 rounded-md border border-slate-700">
+                                    Матка + 30-40 раб.
+                                </span>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h3 class="font-display font-bold text-lg text-white">Lasius Niger</h3>
+                                    <span class="text-xs text-amber-400 font-semibold bg-amber-950/70 border border-amber-800/40 px-2 py-0.5 rounded">Зимовка 1.5 мес.</span>
+                                </div>
+                                <p class="text-xs text-amber-400 font-medium mb-3">Черный садовый муравей</p>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                    Рекордсмен по выживаемости и плодовитости. Прощает ошибки влажности и температуры. Лучший вариант для школьного проекта.
+                                </p>
+                                
+                                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-300 bg-slate-950/50 p-2.5 rounded-xl border border-slate-800 mb-4">
+                                    <div><span class="text-slate-500">Размер матки:</span> 9-10 мм</div>
+                                    <div><span class="text-slate-500">Сложность:</span> 1 / 5 (Супер-легко)</div>
+                                    <div><span class="text-slate-500">Питание:</span> Медовый сироп, белок</div>
+                                    <div><span class="text-slate-500">Колония:</span> до 50 000 ос.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 pt-0 border-t border-slate-800/60 mt-auto flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold font-display text-white">490 ₽</span>
+                                <span class="text-xs text-slate-500 line-through block">750 ₽</span>
+                            </div>
+                            <button onclick="addToCart('Lasius niger (Черный садовый)', 490, 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=400&q=80')" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5 shadow">
+                                <i class="fa-solid fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ant 5 -->
+                    <div class="ant-card bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition group" data-category="large">
+                        <div>
+                            <div class="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                                <img src="https://images.unsplash.com/photo-1589656966895-2f33e7653819?auto=format&fit=crop&w=700&q=80" alt="Messor barbarus" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-amber-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">
+                                    Красноглавые
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-slate-300 text-xs px-2.5 py-1 rounded-md border border-slate-700">
+                                    Матка + 20-30 раб.
+                                </span>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h3 class="font-display font-bold text-lg text-white">Messor Barbarus</h3>
+                                    <span class="text-xs text-emerald-400 font-semibold bg-emerald-950/70 border border-emerald-800/40 px-2 py-0.5 rounded">Без зимовки</span>
+                                </div>
+                                <p class="text-xs text-amber-400 font-medium mb-3">Южно-европейский жнец</p>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                    Особая средиземноморская разновидность жнецов. У крупных солдат огромные головы ярко-рубинового или красно-коричневого оттенка.
+                                </p>
+                                
+                                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-300 bg-slate-950/50 p-2.5 rounded-xl border border-slate-800 mb-4">
+                                    <div><span class="text-slate-500">Размер матки:</span> 13-14 мм</div>
+                                    <div><span class="text-slate-500">Сложность:</span> 1.5 / 5 (Легко)</div>
+                                    <div><span class="text-slate-500">Питание:</span> Зерна + семена</div>
+                                    <div><span class="text-slate-500">Особенность:</span> Цветные солдаты</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 pt-0 border-t border-slate-800/60 mt-auto flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold font-display text-white">1 690 ₽</span>
+                                <span class="text-xs text-slate-500 line-through block">2 100 ₽</span>
+                            </div>
+                            <button onclick="addToCart('Messor barbarus (Красноглавый)', 1690, 'https://images.unsplash.com/photo-1589656966895-2f33e7653819?auto=format&fit=crop&w=400&q=80')" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5 shadow">
+                                <i class="fa-solid fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Ant 6 -->
+                    <div class="ant-card bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-amber-500/40 transition group" data-category="exotic">
+                        <div>
+                            <div class="relative aspect-[16/10] overflow-hidden bg-slate-950">
+                                <img src="https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?auto=format&fit=crop&w=700&q=80" alt="Harpegnathos venator" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">
+                                    Для профи
+                                </span>
+                                <span class="absolute top-3 right-3 bg-slate-900/90 text-slate-300 text-xs px-2.5 py-1 rounded-md border border-slate-700">
+                                    Матка + 8-12 раб.
+                                </span>
+                            </div>
+                            <div class="p-5">
+                                <div class="flex items-center justify-between mb-1">
+                                    <h3 class="font-display font-bold text-lg text-white">Harpegnathos Venator</h3>
+                                    <span class="text-xs text-purple-400 font-semibold bg-purple-950/70 border border-purple-800/40 px-2 py-0.5 rounded">Хищники</span>
+                                </div>
+                                <p class="text-xs text-amber-400 font-medium mb-3">Прыгающий муравей-охотник</p>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                                    Элитный экзотический вид с идеальным фасеточным зрением. Муравьи вибрируют брюшком перед атакой и способны прыгать на добычу!
+                                </p>
+                                
+                                <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-300 bg-slate-950/50 p-2.5 rounded-xl border border-slate-800 mb-4">
+                                    <div><span class="text-slate-500">Размер:</span> 16-18 мм</div>
+                                    <div><span class="text-slate-500">Сложность:</span> 4 / 5 (Опыт)</div>
+                                    <div><span class="text-slate-500">Питание:</span> Живой кормовой сверчок</div>
+                                    <div><span class="text-slate-500">Зрение:</span> Объемное 3D</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 pt-0 border-t border-slate-800/60 mt-auto flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold font-display text-white">4 890 ₽</span>
+                                <span class="text-xs text-slate-500 line-through block">5 900 ₽</span>
+                            </div>
+                            <button onclick="addToCart('Harpegnathos venator (Прыгающие)', 4890, 'https://images.unsplash.com/photo-1533227268428-f9ed0900fb3b?auto=format&fit=crop&w=400&q=80')" class="px-4 py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs sm:text-sm transition flex items-center gap-1.5 shadow">
+                                <i class="fa-solid fa-cart-plus"></i> В корзину
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Starter Kits Section (Готовые стартовые наборы) -->
+        <section id="sets" class="py-20 bg-slate-900 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-xs font-bold tracking-widest uppercase text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                        Все включено под ключ
+                    </span>
+                    <h2 class="font-display font-black text-2xl sm:text-4xl text-white">
+                        Готовые комплекты для легкого старта
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        Не нужно ничего докупать: распакуйте коробку, заселите колонию и наслаждайтесь наблюдением уже через 15 минут!
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+                    
+                    <!-- Kit 1: Старт -->
+                    <div class="bg-slate-950 rounded-3xl p-7 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Базовый набор</span>
+                                <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full">до 400 муравьев</span>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl text-white mb-2">Набор «Компакт»</h3>
+                            <p class="text-slate-400 text-sm mb-6">
+                                Отличный бюджетный подарок для первого знакомства с миром муравьев.
+                            </p>
+                            
+                            <div class="mb-6">
+                                <span class="text-3xl font-display font-black text-white">2 490 ₽</span>
+                                <span class="text-sm text-slate-500 line-through ml-2">3 200 ₽</span>
+                            </div>
+
+                            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Формикарий Mini (15x11 см) с гипсовым блоком</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Колония муравьев <strong>Messor structor</strong> (матка + 25 раб.)</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Запас корма на 6 месяцев (смесь семян)</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Пипетка для увлажнения и инструкция</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button onclick="addToCart('Набор «Компакт» (Ферма Mini + Жнецы)', 2490, 'https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?auto=format&fit=crop&w=400&q=80')" class="w-full py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition border border-slate-700 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus text-amber-400"></i>
+                            <span>Купить набор за 2 490 ₽</span>
+                        </button>
+                    </div>
+
+                    <!-- Kit 2: Pro (Хит) -->
+                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 rounded-3xl p-7 border-2 border-amber-500/80 flex flex-col justify-between shadow-xl shadow-amber-500/10 relative transform lg:-translate-y-2">
+                        <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-500 text-slate-950 font-bold text-xs uppercase px-4 py-1 rounded-full shadow tracking-wider">
+                            Выбор 82% клиентов
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between items-center mb-4 mt-2">
+                                <span class="text-xs font-semibold text-amber-400 uppercase tracking-wider">Оптимальный</span>
+                                <span class="text-xs bg-amber-500/10 text-amber-300 border border-amber-500/30 px-2.5 py-1 rounded-full">до 1 200 муравьев</span>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl text-white mb-2">Набор «Бионик Pro»</h3>
+                            <p class="text-slate-400 text-sm mb-6">
+                                Просторная арена, сменные декоративные накладки, система автоувлажнения на 14 дней.
+                            </p>
+                            
+                            <div class="mb-6">
+                                <span class="text-4xl font-display font-black text-amber-400">3 890 ₽</span>
+                                <span class="text-sm text-slate-500 line-through ml-2">5 100 ₽</span>
+                            </div>
+
+                            <ul class="space-y-3 text-sm text-slate-200 mb-8">
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Ферма «Бионик 2.0» (22x18 см) с разделением на отсеки</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Колония муравьев <strong>Messor structor</strong> (матка + 35 раб.)</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span><strong>Годовой запас корма</strong> (5 видов отборных семян)</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Автопоилка Smart Aqua + антипобег гелевый</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Декоративный цветной песок + фигурки для арены</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Пинцет, лупа x5, автопипетка и книга мирмеколога</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button onclick="addToCart('Набор «Бионик Pro» (Ферма 22x18 + Жнецы + Год корма)', 3890, 'https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?auto=format&fit=crop&w=400&q=80')" class="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-black rounded-xl transition shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-fire"></i>
+                            <span>Заказать хит за 3 890 ₽</span>
+                        </button>
+                    </div>
+
+                    <!-- Kit 3: Максимум -->
+                    <div class="bg-slate-950 rounded-3xl p-7 border border-slate-800 flex flex-col justify-between hover:border-slate-700 transition">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Максимальный флагман</span>
+                                <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-full">до 2 500 муравьев</span>
+                            </div>
+                            <h3 class="font-display font-bold text-2xl text-white mb-2">Набор «Королевство XL»</h3>
+                            <p class="text-slate-400 text-sm mb-6">
+                                Огромный дворец с панорамной 3D-ареной и возможностью бесконечного расширения модулями.
+                            </p>
+                            
+                            <div class="mb-6">
+                                <span class="text-3xl font-display font-black text-white">5 990 ₽</span>
+                                <span class="text-sm text-slate-500 line-through ml-2">7 600 ₽</span>
+                            </div>
+
+                            <ul class="space-y-3 text-sm text-slate-300 mb-8">
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Формикарий XL (29x24 см) с объемной ареной</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Колония на выбор: <strong>Messor Structor</strong> или <strong>Nicobarensis</strong></span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Корм на 2 года + белковое желе и сушеные креветки</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Премиум декор: натуральная коряга, камни и светящийся мох</span>
+                                </li>
+                                <li class="flex items-center gap-2.5">
+                                    <i class="fa-solid fa-check text-emerald-400"></i>
+                                    <span>Электронный термогигрометр для точного климат-контроля</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <button onclick="addToCart('Набор «Королевство XL» (Флагман 29x24 см)', 5990, 'https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?auto=format&fit=crop&w=400&q=80')" class="w-full py-3.5 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition border border-slate-700 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus text-amber-400"></i>
+                            <span>Купить набор за 5 990 ₽</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Colony Recommender Quiz (Подбор фермы) -->
+        <section id="quiz" class="py-20 bg-slate-950 border-b border-slate-800 relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="bg-gradient-to-tr from-slate-900 to-slate-800 border border-slate-700 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+                    <div class="text-center max-w-xl mx-auto mb-8 space-y-2">
+                        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                            Тест за 1 минуту
+                        </span>
+                        <h2 class="font-display font-black text-2xl sm:text-3xl text-white">
+                            Какая колония подойдет именно вам?
+                        </h2>
+                        <p class="text-slate-400 text-xs sm:text-sm">
+                            Ответьте на 3 простых вопроса — мы подберем идеальный вид и подарим промокод на скидку 10%!
+                        </p>
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div id="quiz-step-1" class="quiz-step space-y-4">
+                        <div class="text-xs text-amber-400 font-bold uppercase tracking-wider">Вопрос 1 из 3</div>
+                        <h3 class="text-lg font-bold text-white">Для кого вы выбираете муравьев?</h3>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <button onclick="quizSelect(1, 'Ребенку / Школьнику', 'beginner')" class="quiz-opt-btn p-4 rounded-xl bg-slate-950/70 border border-slate-700 hover:border-amber-400 text-left transition">
+                                <i class="fa-solid fa-child-reaching text-amber-400 text-xl mb-2 block"></i>
+                                <span class="font-bold text-white block text-sm">Ребенку / Семье</span>
+                                <span class="text-xs text-slate-400">Чтобы было просто, безопасно и наглядно</span>
+                            </button>
+                            <button onclick="quizSelect(1, 'Себе на рабочий стол', 'desktop')" class="quiz-opt-btn p-4 rounded-xl bg-slate-950/70 border border-slate-700 hover:border-amber-400 text-left transition">
+                                <i class="fa-solid fa-laptop-code text-amber-400 text-xl mb-2 block"></i>
+                                <span class="font-bold text-white block text-sm">Себе на стол</span>
+                                <span class="text-xs text-slate-400">Медитативное хобби, стильный интерьер</span>
+                            </button>
+                            <button onclick="quizSelect(1, 'В подарок взрослому', 'gift')" class="quiz-opt-btn p-4 rounded-xl bg-slate-950/70 border border-slate-700 hover:border-amber-400 text-left transition">
+                                <i class="fa-solid fa-gift text-amber-400 text-xl mb-2 block"></i>
+                                <span class="font-bold text-white block text-sm">В подарок</span>
+                                <span class="text-xs text-slate-400">Необычный вау-сюрприз с полной комплектацией</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div id="quiz-step-2" class="quiz-step space-y-4 hidden">
+                        <div class="text-xs text-amber-400 font-bold uppercase tracking-wider">Вопрос 2 из 3</div>
+                        <h3 class="text-lg font-bold text-white">Сколько времени готовы уделять питомцам?</h3>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <button onclick="quizSelect(2, 'Минимум (5 минут в неделю)', 'easy')" class="quiz-opt-btn p-4 rounded-xl bg-slate-950/70 border border-slate-700 hover:border-amber-400 text-left transition">
+                                <i class="fa-solid fa-clock text-amber-400 text-xl mb-2 block"></i>
+                                <span class="font-bold text-white block text-sm">5 минут в неделю</span>
+                                <span class="text-xs text-slate-400">Насыпать семян раз в месяц и капнуть воды</span>
+                            </button>
+                            <button onclick="quizSelect(2, '2-3 раза в неделю', 'medium')" class="quiz-opt-btn p-4 rounded-xl bg-slate-950/70 border border-slate-700 hover:border-amber-400 text-left transition">
+                                <i class="fa-solid fa-utensils text-amber-400 text-xl mb-2 block"></i>
+                                <span class="font-bold text-white block text-sm">2-3 раза в неделю</span>
+                                <span class="text-xs text-slate-400">Готов кормить сиропом и наблюдать за охотой</span>
+                            </button>
+                            <button onclick="quizSelect(2, 'Любое время', 'hard')" class="quiz-opt-btn p-4 rounded-xl bg-slate-950/70 border border-slate-700 hover:border-amber-400 text-left transition">
+                                <i class="fa-solid fa-fire text-amber-400 text-xl mb-2 block"></i>
+                                <span class="font-bold text-white block text-sm">Любое время</span>
+                                <span class="text-xs text-slate-400">Хочу редкий вид с прыжками или крупными солдатами</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div id="quiz-step-3" class="quiz-step space-y-4 hidden">
+                        <div class="text-xs text-amber-400 font-bold uppercase tracking-wider">Вопрос 3 из 3</div>
+                        <h3 class="text-lg font-bold text-white">Что для вас важнее всего?</h3>
+                        <div class="grid sm:grid-cols-3 gap-3">
+                            <button onclick="quizSelect(3, '100% простота и надежность', 'safe')" class="quiz-opt-btn p-4 rounded-xl bg-slate-950/70 border border-slate-700 hover:border-amber-400 text-left transition">
+                                <i class="fa-solid fa-seedling text-amber-400 text-xl mb-2 block"></i>
+                                <span class="font-bold text-white block text-sm">Простота и зерно</span>
+                                <span class="text-xs text-slate-400">Вид, который не сможет погибнуть от оплошности</span>
+                            </button>
+                            <button onclick="quizSelect(3, 'Крупные размеры муравьев', 'large')" class="quiz-opt-btn p-4 rounded-xl bg-slate-950/70 border border-slate-700 hover:border-amber-400 text-left transition">
+                                <i class="fa-solid fa-magnifying-glass text-amber-400 text-xl mb-2 block"></i>
+                                <span class="font-bold text-white block text-sm">Крупный размер</span>
+                                <span class="text-xs text-slate-400">Чтобы хорошо было видно солдат даже без лупы</span>
+                            </button>
+                            <button onclick="quizSelect(3, 'Яркий дизайн и полный набор', 'design')" class="quiz-opt-btn p-4 rounded-xl bg-slate-950/70 border border-slate-700 hover:border-amber-400 text-left transition">
+                                <i class="fa-solid fa-cube text-amber-400 text-xl mb-2 block"></i>
+                                <span class="font-bold text-white block text-sm">Дизайн фермы</span>
+                                <span class="text-xs text-slate-400">Красивые неоновые цвета арены и автопоилка</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Result -->
+                    <div id="quiz-result" class="space-y-6 hidden text-center">
+                        <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl mx-auto">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+                        <div>
+                            <span class="text-xs text-amber-400 uppercase tracking-widest font-bold">Ваш идеальный вариант:</span>
+                            <h3 id="quiz-recommendation-title" class="text-2xl font-display font-black text-white mt-1">
+                                Стартовый набор «Бионик Pro» + Жнецы Messor Structor
+                            </h3>
+                            <p id="quiz-recommendation-desc" class="text-slate-300 text-sm max-w-lg mx-auto mt-2">
+                                100% попадание! Муравьи питаются зернами, не кусаются, не требуют зимовки. Ферма с автоувлажнением не даст им пересохнуть, даже если вы забудете полить.
+                            </p>
+                        </div>
+
+                        <!-- Promo Banner -->
+                        <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-2xl max-w-md mx-auto">
+                            <span class="text-xs text-amber-400 block font-semibold">Ваш персональный промокод на скидку 10%:</span>
+                            <div class="font-mono text-xl font-black text-white tracking-widest my-1 select-all bg-slate-900 py-1 px-3 rounded-lg border border-slate-700 inline-block">
+                                ANT2026
+                            </div>
+                            <span class="text-[11px] text-slate-400 block">Действителен при оформлении заказа сегодня до 23:59</span>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                            <button onclick="addToCart('Набор «Бионик Pro» (По результатам теста)', 3500, 'https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?auto=format&fit=crop&w=400&q=80')" class="w-full sm:w-auto px-8 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl transition shadow">
+                                Добавить набор со скидкой (3 500 ₽)
+                            </button>
+                            <button onclick="resetQuiz()" class="text-xs text-slate-400 hover:text-white underline">
+                                Пройти тест заново
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Guarantee & Safe Delivery Section (Гарантия) -->
+        <section id="guarantee" class="py-20 bg-slate-900 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-10 items-center">
+                    
+                    <div class="lg:col-span-6 space-y-6">
+                        <span class="text-xs font-bold tracking-widest uppercase text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                            Безопасная доставка
+                        </span>
+                        <h2 class="font-display font-black text-2xl sm:text-4xl text-white">
+                            100% Гарантия доезда: <br>
+                            <span class="text-amber-400">Живые или бесплатная замена</span>
+                        </h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                            Мы отправляем тысячи колоний круглый год — даже в сибирские морозы (-30°C) и летний зной (+35°C). Каждая пробирка надежно фиксируется и обогревается.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-temperature-arrow-up text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm">Термобокс и грелка зимой</h4>
+                                    <p class="text-slate-400 text-xs">При температуре ниже +5°C упаковываем колонию в теплоизолирующий изолон с химической грелкой, поддерживающей +22°C до 72 часов.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-hand-holding-heart text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm">Запас влаги и воздуха на 30 дней</h4>
+                                    <p class="text-slate-400 text-xs">Инкубатор содержит герметичную водяную камеру с нано-ватным барьером. Муравьям хватает кислорода и воды даже при задержках на почте.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-money-bill-transfer text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm">Возврат денег или новая матка</h4>
+                                    <p class="text-slate-400 text-xs">Если при вскрытии посылки с маткой что-то случилось — снимите распаковку на видео, и мы вышлем новую колонию за наш счет в тот же день.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-6">
+                        <div class="bg-slate-950 p-6 sm:p-8 rounded-3xl border border-slate-800 relative">
+                            <h3 class="font-display font-bold text-xl text-white mb-6 flex items-center gap-2">
+                                <i class="fa-solid fa-truck-fast text-amber-400"></i>
+                                <span>Способы доставки по РФ и СНГ:</span>
+                            </h3>
+
+                            <div class="space-y-4 text-sm">
+                                <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-bold">СДЭК</div>
+                                        <div>
+                                            <span class="font-bold text-white block">Курьером или в ПВЗ СДЭК</span>
+                                            <span class="text-xs text-slate-400">1-3 дня по городам России</span>
+                                        </div>
+                                    </div>
+                                    <span class="font-semibold text-amber-400 text-xs sm:text-sm">от 350 ₽</span>
+                                </div>
+
+                                <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold">Почта</div>
+                                        <div>
+                                            <span class="font-bold text-white block">Почта России 1 Класс</span>
+                                            <span class="text-xs text-slate-400">Доставка в самые отдаленные поселки</span>
+                                        </div>
+                                    </div>
+                                    <span class="font-semibold text-amber-400 text-xs sm:text-sm">от 390 ₽</span>
+                                </div>
+
+                                <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold">Экспресс</div>
+                                        <div>
+                                            <span class="font-bold text-white block">Курьер день в день</span>
+                                            <span class="text-xs text-slate-400">Москва и Санкт-Петербург</span>
+                                        </div>
+                                    </div>
+                                    <span class="font-semibold text-amber-400 text-xs sm:text-sm">490 ₽</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 p-4 rounded-xl bg-emerald-950/40 border border-emerald-800/40 flex items-center gap-3 text-xs text-emerald-300">
+                                <i class="fa-solid fa-gift text-base"></i>
+                                <span><strong>Бесплатная доставка</strong> при заказе любого комплекта от 4 000 ₽!</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Customer Reviews (Отзывы) -->
+        <section id="reviews" class="py-20 bg-slate-950 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                    <span class="text-xs font-bold tracking-widest uppercase text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                        Честные отзывы
+                    </span>
+                    <h2 class="font-display font-black text-2xl sm:text-4xl text-white">
+                        Что говорят наши мирмекиперы
+                    </h2>
+                    <p class="text-slate-400 text-sm sm:text-base">
+                        Более 1 200 реальных отзывов с фото в нашем Telegram-канале
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Review 1 -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div class="flex text-amber-400 gap-1 text-xs">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="text-[11px] text-slate-500">2 дня назад</span>
+                            </div>
+                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                                «Заказывали сыну на 9 лет набор «Бионик Pro». Ребенок в полном восторге, бросил Roblox и целыми днями смотрит, как жнецы перетаскивают зерна в хранилище. Доехали в Пермь живыми за 3 дня!»
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 pt-3 border-t border-slate-800">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80" alt="Елена" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <span class="font-bold text-white text-xs block">Елена Воронова</span>
+                                <span class="text-[11px] text-emerald-400 flex items-center gap-1">
+                                    <i class="fa-solid fa-circle-check text-[10px]"></i> Проверенная покупка (СДЭК)
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div class="flex text-amber-400 gap-1 text-xs">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="text-[11px] text-slate-500">Неделю назад</span>
+                            </div>
+                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                                «Я программист, поставил формикарий рядом с монитором. Лучший антистресс во время созвонов и дебага кода. Заказывал Messor Barbarus с красными головами — солдаты просто монстры, крупные, деловые!»
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 pt-3 border-t border-slate-800">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" alt="Алексей" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <span class="font-bold text-white text-xs block">Алексей Смирнов</span>
+                                <span class="text-[11px] text-emerald-400 flex items-center gap-1">
+                                    <i class="fa-solid fa-circle-check text-[10px]"></i> Проверенная покупка
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <div class="flex text-amber-400 gap-1 text-xs">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <span class="text-[11px] text-slate-500">12 дней назад</span>
+                            </div>
+                            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                                «Очень переживала за доставку зимой в Новосибирск (-18 было на улице). Посылка пришла в толстом термобоксе, внутри пакетик с теплой грелкой. Матка бодрая, куча яиц и личинок. Спасибо зоологу за консультацию в Telegram!»
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-3 pt-3 border-t border-slate-800">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Ольга" class="w-10 h-10 rounded-full object-cover">
+                            <div>
+                                <span class="font-bold text-white text-xs block">Ольга Казакова</span>
+                                <span class="text-[11px] text-emerald-400 flex items-center gap-1">
+                                    <i class="fa-solid fa-circle-check text-[10px]"></i> Проверенная покупка
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section (Вопросы и ответы) -->
+        <section id="faq" class="py-20 bg-slate-900 border-b border-slate-800">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+                    <span class="text-xs font-bold tracking-widest uppercase text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
+                        Ответы на страхи
+                    </span>
+                    <h2 class="font-display font-black text-2xl sm:text-4xl text-white">
+                        Часто задаваемые вопросы
+                    </h2>
+                    <p class="text-slate-400 text-sm">
+                        Все, что нужно знать перед заселением своей первой муравьиной фермы
+                    </p>
+                </div>
+
+                <div class="space-y-3" id="faq-accordion">
+                    
+                    <!-- Item 1 -->
+                    <div class="faq-item border border-slate-800 bg-slate-950 rounded-2xl overflow-hidden transition">
+                        <button onclick="toggleFaq(this)" class="w-full p-5 text-left flex items-center justify-between text-white font-bold text-sm sm:text-base gap-4">
+                            <span>Могут ли муравьи сбежать и размножиться по квартире?</span>
+                            <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-900 pt-3">
+                            <strong>Нет, это абсолютно исключено.</strong> Во-первых, арена формикария плотно закрывается крышкой со сверхмелкой вентиляционной сеткой, а края обрабатываются безвредным маслом «Антипобег». Во-вторых, даже если один муравей случайно выпадет наружу при уборке, он не сможет дать потомство — размножаться способна исключительно королева (матка), которая никогда не покидает глубины гипсового гнезда. Домашними паразитами они стать не могут.
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="faq-item border border-slate-800 bg-slate-950 rounded-2xl overflow-hidden transition">
+                        <button onclick="toggleFaq(this)" class="w-full p-5 text-left flex items-center justify-between text-white font-bold text-sm sm:text-base gap-4">
+                            <span>Чем их кормить и сложно ли ухаживать?</span>
+                            <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-900 pt-3">
+                            Для новичков мы рекомендуем жнецов <em>Messor structor</em>. Они питаются сухими семенами растений (мак, клевер, просо). Вы просто насыпаете чайную ложку смеси на арену — этого запаса им хватает на 2-3 месяца! Раз в неделю нужно добавлять пару капель воды в камеру увлажнения пипеткой из комплекта. Никаких тараканов и живых насекомых в доме разводить не требуется.
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="faq-item border border-slate-800 bg-slate-950 rounded-2xl overflow-hidden transition">
+                        <button onclick="toggleFaq(this)" class="w-full p-5 text-left flex items-center justify-between text-white font-bold text-sm sm:text-base gap-4">
+                            <span>Сколько живет матка и колония?</span>
+                            <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-900 pt-3">
+                            Муравьиная матка — один из самых долгоживущих организмов среди насекомых на планете. В комфортных условиях формикария матка живет <strong>до 15–20 лет</strong>, непрерывно воспроизводя новых рабочих муравьев. Сами рабочие муравьи живут от 6 месяцев до 2 лет. Ваша колония будет радовать вас долгие годы!
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="faq-item border border-slate-800 bg-slate-950 rounded-2xl overflow-hidden transition">
+                        <button onclick="toggleFaq(this)" class="w-full p-5 text-left flex items-center justify-between text-white font-bold text-sm sm:text-base gap-4">
+                            <span>Кусаются ли эти муравьи? Опасно ли для детей?</span>
+                            <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-900 pt-3">
+                            Виды для начинающих (Messor structor, Lasius niger) не имеют ядовитого жала и не могут прокусить кожу человека. Они абсолютно безопасны для маленьких детей и домашних кошек или собак. Напротив, дети учатся бережному отношению к крошечным созданиям природы.
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="faq-item border border-slate-800 bg-slate-950 rounded-2xl overflow-hidden transition">
+                        <button onclick="toggleFaq(this)" class="w-full p-5 text-left flex items-center justify-between text-white font-bold text-sm sm:text-base gap-4">
+                            <span>Что делать, если колония разрастется и не поместится в ферму?</span>
+                            <i class="fa-solid fa-chevron-down text-amber-400 transition-transform duration-300"></i>
+                        </button>
+                        <div class="faq-content hidden px-5 pb-5 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-900 pt-3">
+                            Все наши фермы имеют специальные отверстия расширения диаметром 10 мм. Когда муравьям станет тесно (обычно через 1-1.5 года), вы сможете просто подключить с помощью гибкой прозрачной трубки второй блок или арену большего размера без стресса для колонии.
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Final Lead Form / CTA Section -->
+        <section class="py-20 bg-slate-950 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-emerald-500/5 to-transparent pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-8 sm:p-12 shadow-2xl">
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7 space-y-4">
+                            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                                Консультация мирмеколога бесплатно
+                            </span>
+                            <h2 class="font-display font-black text-2xl sm:text-4xl text-white">
+                                Остались сомнения или хотите индивидуальный набор?
+                            </h2>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Оставьте номер — специалист свяжется с вами в течение 10 минут, покажет муравьев по видеосвязи и поможет сделать правильный выбор под ваш бюджет.
+                            </p>
+                            <div class="flex items-center gap-4 pt-2 text-xs text-slate-400">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-amber-400"></i> Данные защищены</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-ban text-emerald-400"></i> Без спама</span>
+                            </div>
+                        </div>
+
+                        <!-- Direct Call Form -->
+                        <div class="lg:col-span-5 bg-slate-900/90 border border-slate-700/80 p-6 rounded-2xl">
+                            <form onsubmit="handleQuickConsultation(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-1">Ваше имя</label>
+                                    <input type="text" id="consult-name" required placeholder="Константин" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400 transition">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-slate-300 mb-1">Телефон для связи / WhatsApp</label>
+                                    <input type="tel" id="consult-phone" required placeholder="+7 (999) 000-00-00" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white text-sm focus:outline-none focus:border-amber-400 transition">
+                                </div>
+                                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold rounded-xl text-sm transition shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    <span>Получить консультацию</span>
+                                </button>
+                                <p class="text-[10px] text-slate-500 text-center">
+                                    Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-400 text-xs py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+                <div class="col-span-2 md:col-span-1 space-y-3">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-bold">
+                            <i class="fa-solid fa-bug text-sm"></i>
+                        </div>
+                        <span class="font-display font-bold text-lg text-white">AntColony</span>
+                    </div>
+                    <p class="text-slate-400 leading-relaxed text-xs">
+                        Официальный питомник и производство формикариев. Отправка живых муравьев по России, Беларуси и Казахстану с 2018 года.
+                    </p>
+                    <div class="flex items-center gap-3 pt-1 text-slate-300">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-amber-400 transition"><i class="fa-brands fa-telegram"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-amber-400 transition"><i class="fa-brands fa-vk"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-amber-400 transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center hover:text-amber-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white text-sm mb-3">Каталог</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#catalog" class="hover:text-amber-400 transition">Жнецы Messor structor</a></li>
+                        <li><a href="#catalog" class="hover:text-amber-400 transition">Древоточцы Camponotus</a></li>
+                        <li><a href="#catalog" class="hover:text-amber-400 transition">Садовые Lasius niger</a></li>
+                        <li><a href="#catalog" class="hover:text-amber-400 transition">Экзотические муравьи</a></li>
+                        <li><a href="#sets" class="hover:text-amber-400 transition">Готовые стартовые наборы</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white text-sm mb-3">Покупателям</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#guarantee" class="hover:text-amber-400 transition">Гарантия живой доставки</a></li>
+                        <li><a href="#guarantee" class="hover:text-amber-400 transition">Оплата и доставка</a></li>
+                        <li><a href="#faq" class="hover:text-amber-400 transition">Инструкция по заселению</a></li>
+                        <li><a href="#quiz" class="hover:text-amber-400 transition">Тест на подбор колонии</a></li>
+                        <li><a href="#reviews" class="hover:text-amber-400 transition">Отзывы клиентов</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-white text-sm mb-3">Контакты</h4>
+                    <ul class="space-y-2">
+                        <li class="text-white font-semibold flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-amber-400"></i>
+                            <a href="tel:+78005553535">8 (800) 555-35-35</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-amber-400"></i>
+                            <span>order@antcolony-shop.ru</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-clock text-amber-400"></i>
+                            <span>Ежедневно: 09:00 — 21:00</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-amber-400"></i>
+                            <span>г. Москва, склад самовывоза</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+                <p>© 2026 AntColony. Все права защищены. Не является публичной офертой.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:underline">Политика конфиденциальности</a>
+                    <a href="#" class="hover:underline">Договор оферты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer (Интерактивная корзина) -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden pointer-events-none transition-opacity duration-300 opacity-0">
+        <div id="cart-backdrop" onclick="toggleCart()" class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm pointer-events-auto"></div>
+        <div id="cart-panel" class="absolute inset-y-0 right-0 max-w-full flex pl-10 pointer-events-auto transform translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="w-screen max-w-md bg-slate-900 border-l border-slate-800 flex flex-col justify-between shadow-2xl">
+                
+                <!-- Cart Header -->
+                <div class="p-6 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping text-amber-400 text-lg"></i>
+                        <h3 class="font-display font-bold text-lg text-white">Корзина заказа</h3>
+                    </div>
+                    <button onclick="toggleCart()" class="text-slate-400 hover:text-white p-2">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items Container -->
+                <div id="cart-items" class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+                    <!-- Populated by JS -->
+                </div>
+
+                <!-- Cart Footer & Checkout -->
+                <div class="p-6 border-t border-slate-800 bg-slate-950/80 space-y-4">
+                    <div class="space-y-1.5 text-sm">
+                        <div class="flex justify-between text-slate-400">
+                            <span>Товары:</span>
+                            <span id="cart-subtotal" class="text-white font-medium">0 ₽</span>
+                        </div>
+                        <div class="flex justify-between text-slate-400">
+                            <span>Доставка термобоксом:</span>
+                            <span id="cart-shipping" class="text-emerald-400 font-medium">Бесплатно</span>
+                        </div>
+                        <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-slate-800">
+                            <span>Итого к оплате:</span>
+                            <span id="cart-total" class="text-amber-400 font-display text-xl">0 ₽</span>
+                        </div>
+                    </div>
+
+                    <button onclick="openCheckoutModal()" id="checkout-btn" disabled class="w-full py-4 bg-amber-500 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-amber-400 text-slate-950 font-bold rounded-xl transition shadow flex items-center justify-center gap-2">
+                        <span>Перейти к оформлению</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                    <p class="text-[11px] text-slate-400 text-center flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-shield-halved text-emerald-400"></i> Оплата при получении или онлайн со скидкой 5%
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal (Окно подтверждения заказа) -->
+    <div id="checkout-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-sm hidden">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative">
+            <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl mx-auto mb-2">
+                    <i class="fa-solid fa-truck-ramp-box"></i>
+                </div>
+                <h3 class="font-display font-bold text-xl text-white">Оформление заказа</h3>
+                <p class="text-xs text-slate-400">Заполните данные для отправки в термобоксе</p>
+            </div>
+
+            <form onsubmit="handleCheckoutSubmit(event)" class="space-y-3.5 text-xs sm:text-sm">
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">ФИО получателя</label>
+                    <input type="text" id="order-name" required placeholder="Иванов Иван Иванович" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Контактный телефон</label>
+                    <input type="tel" id="order-phone" required placeholder="+7 (999) 123-45-67" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Город и адрес доставки (или ПВЗ СДЭК)</label>
+                    <input type="text" id="order-address" required placeholder="г. Москва, ул. Ленина 15, кв. 42" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-amber-400">
+                </div>
+                <div>
+                    <label class="block text-slate-300 font-medium mb-1">Промокод (если есть)</label>
+                    <input type="text" id="order-promo" placeholder="ANT2026" class="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-amber-400 uppercase">
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold rounded-xl text-sm transition shadow-lg">
+                        Подтвердить заказ (<span id="modal-order-total">0 ₽</span>)
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Feedback Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-emerald-600 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-lg"></i>
+        <span id="toast-msg" class="text-xs sm:text-sm font-semibold">Товар добавлен в корзину!</span>
+    </div>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        // State
+        let cart = [];
+
+        // Add to cart function
+        function addToCart(title, price, image) {
+            const existingItem = cart.find(item => item.title === title);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({
+                    title: title,
+                    price: price,
+                    image: image,
+                    qty: 1
+                });
+            }
+            updateCartUI();
+            showToast(`«${title}» добавлен в корзину!`);
+        }
+
+        function updateCartQty(index, delta) {
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function removeCartItem(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartCounter = document.getElementById('cart-counter');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartTotal = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const modalTotal = document.getElementById('modal-order-total');
+
+            const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+            const totalSum = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+            cartCounter.textContent = totalCount;
+            cartSubtotal.textContent = `${totalSum.toLocaleString('ru-RU')} ₽`;
+            cartTotal.textContent = `${totalSum.toLocaleString('ru-RU')} ₽`;
+            if (modalTotal) modalTotal.textContent = `${totalSum.toLocaleString('ru-RU')} ₽`;
+
+            if (totalCount === 0) {
+                checkoutBtn.disabled = true;
+                cartItemsContainer.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12 text-slate-500">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3 text-slate-700"></i>
+                        <p class="text-sm font-semibold text-slate-400">Ваша корзина пуста</p>
+                        <p class="text-xs text-slate-500 mt-1">Выберите колонию или готовый стартовый набор в каталоге</p>
+                    </div>
+                `;
+            } else {
+                checkoutBtn.disabled = false;
+                cartItemsContainer.innerHTML = cart.map((item, idx) => `
+                    <div class="flex items-center gap-3 bg-slate-950 p-3 rounded-2xl border border-slate-800">
+                        <img src="${item.image}" alt="${item.title}" class="w-14 h-14 object-cover rounded-xl bg-slate-900 shrink-0">
+                        <div class="flex-1 min-w-0">
+                            <h4 class="font-bold text-white text-xs truncate">${item.title}</h4>
+                            <span class="text-amber-400 font-bold text-xs">${item.price.toLocaleString('ru-RU')} ₽</span>
+                            <div class="flex items-center gap-2 mt-1">
+                                <button onclick="updateCartQty(${idx}, -1)" class="w-5 h-5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center justify-center">-</button>
+                                <span class="text-xs text-white font-medium">${item.qty}</span>
+                                <button onclick="updateCartQty(${idx}, 1)" class="w-5 h-5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs flex items-center justify-center">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeCartItem(${idx})" class="text-slate-500 hover:text-red-400 p-2 text-sm" title="Удалить">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // Toggle Cart Drawer
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const panel = document.getElementById('cart-panel');
+            
+            if (drawer.classList.contains('opacity-0')) {
+                drawer.classList.remove('opacity-0', 'pointer-events-none');
+                panel.classList.remove('translate-x-full');
+            } else {
+                panel.classList.add('translate-x-full');
+                drawer.classList.add('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Filter Catalog
+        function filterCatalog(category) {
+            const buttons = document.querySelectorAll('.catalog-filter-btn');
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.className = "catalog-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-amber-500 text-slate-950";
+                } else {
+                    btn.className = "catalog-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800";
+                }
+            });
+
+            const cards = document.querySelectorAll('.ant-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // FAQ Toggle
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Quiz Logic
+        let quizAnswers = {};
+
+        function quizSelect(step, answerText, answerKey) {
+            quizAnswers[step] = answerKey;
+            
+            if (step === 1) {
+                document.getElementById('quiz-step-1').classList.add('hidden');
+                document.getElementById('quiz-step-2').classList.remove('hidden');
+            } else if (step === 2) {
+                document.getElementById('quiz-step-2').classList.add('hidden');
+                document.getElementById('quiz-step-3').classList.remove('hidden');
+            } else if (step === 3) {
+                document.getElementById('quiz-step-3').classList.add('hidden');
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            const resultDiv = document.getElementById('quiz-result');
+            const titleEl = document.getElementById('quiz-recommendation-title');
+            const descEl = document.getElementById('quiz-recommendation-desc');
+
+            if (quizAnswers[2] === 'easy' || quizAnswers[1] === 'beginner') {
+                titleEl.textContent = "Стартовый набор «Бионик Pro» + Степной жнец Messor Structor";
+                descEl.textContent = "100% попадание! Муравьи питаются зернами, не кусаются, не требуют зимовки. Ферма с автоувлажнением не позволит им пересохнуть.";
+            } else if (quizAnswers[3] === 'large') {
+                titleEl.textContent = "Колония Camponotus Vagus (Древоточец-гигант) + Ферма XL";
+                descEl.textContent = "Идеально под ваш запрос! Огромные размеры солдат (до 15 мм), мощные челюсти и захватывающее зрелище во время кормления.";
+            } else {
+                titleEl.textContent = "Экзотический набор: Camponotus Nicobarensis + Арена Pro";
+                descEl.textContent = "Красивейшие яркие тропические муравьи без необходимости зимовки. Быстрое развитие и постоянная активность на арене.";
+            }
+
+            resultDiv.classList.remove('hidden');
+        }
+
+        function resetQuiz() {
+            quizAnswers = {};
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-step-1').classList.remove('hidden');
+            document.getElementById('quiz-step-2').classList.add('hidden');
+            document.getElementById('quiz-step-3').classList.add('hidden');
+        }
+
+        // Toast notifications
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.textContent = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // Checkout Modal handlers
+        function openCheckoutModal() {
+            toggleCart();
+            document.getElementById('checkout-modal').classList.remove('hidden');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function handleCheckoutSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('order-name').value;
+            const phone = document.getElementById('order-phone').value;
+            
+            closeCheckoutModal();
+            cart = [];
+            updateCartUI();
+
+            alert(`Спасибо за заказ, ${name}!\n\nНомер заказа: #ANT-${Math.floor(100000 + Math.random() * 900000)}\nМы уже упаковываем колонию в термобокс и свяжемся с вами по телефону ${phone} в течение 10 минут!`);
+        }
+
+        function handleQuickConsultation(e) {
+            e.preventDefault();
+            const name = document.getElementById('consult-name').value;
+            const phone = document.getElementById('consult-phone').value;
+            alert(`Спасибо, ${name}! Мирмеколог перезвонит вам на номер ${phone} через 5-10 минут.`);
+            e.target.reset();
+        }
+
+        // Initialize UI
+        updateCartUI();
+    </script>
+</body>
+</html>
